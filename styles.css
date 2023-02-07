@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(16, 4fr);
+    height: 256px;
+    width: 256px;
+    gap: 0 0;
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16px;
+    width: 16px;
+}
+
+.grid:hover {
+    background-color: black;
+}
