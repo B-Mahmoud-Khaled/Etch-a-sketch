@@ -7,13 +7,12 @@ const root = document.querySelector(":root");
 const grid = document.querySelector(".grid");
 const rootStyle = getComputedStyle(root);
 
-window.onload = () => {
-	for (let i = 0; i < rootStyle.getPropertyValue("--canvasSize") ** 2; i++) {
-		const div = document.createElement("div");
-		div.classList.add("grid");
-		container.appendChild(div);
-	}
-};
+for (let i = 0; i < rootStyle.getPropertyValue("--canvasSize") ** 2; i++) {
+	const div = document.createElement("div");
+	div.classList.add("grid");
+	div.addEventListener('mouseover', () => (div.style.backgroundColor = "black"))
+	container.appendChild(div);
+}
 
 layout.addEventListener("click", () => {
 	card.style.display = "flex";
@@ -25,9 +24,9 @@ select.addEventListener("click", () => {
 	container.innerHTML = "";
 	for (let i = 0; i < gridSize.value ** 2; i++) {
 		const div = document.createElement("div");
+		div.addEventListener('mouseover', () => (div.style.backgroundColor = "black"))
 		div.classList.add("grid");
 		container.appendChild(div);
 	}
 });
 
-grid.addEventListener('click', () => grid.style.backgroundColor = "black" );
