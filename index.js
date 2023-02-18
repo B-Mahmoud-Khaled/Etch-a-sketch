@@ -6,27 +6,40 @@ const gridSize = document.querySelector(".gridSize");
 const root = document.querySelector(":root");
 const grid = document.querySelector(".grid");
 const rootStyle = getComputedStyle(root);
+const clearBtn = document.querySelector(".clearBtn");
+gridSize.value = 16;
+let color = "black";
 
-for (let i = 0; i < rootStyle.getPropertyValue("--canvasSize") ** 2; i++) {
-	const div = document.createElement("div");
-	div.classList.add("grid");
-	div.addEventListener('mouseover', () => (div.style.backgroundColor = "black"))
-	container.appendChild(div);
+function createCanvas(size) {
+	for (let i = 0; i < size * size; i++) {
+		const div = document.createElement("div");
+		div.classList.add("grid");
+		div.addEventListener(
+			"mouseover",
+			() => (div.style.backgroundColor = color)
+		);
+		container.appendChild(div);
+	}
 }
+
+function clearCanvas() {
+	card.style.display = "none";
+	container.innerHTML = "";
+}
+
+createCanvas(gridSize.value);
 
 layout.addEventListener("click", () => {
 	card.style.display = "flex";
 });
 
 select.addEventListener("click", () => {
+	clearCanvas();
 	root.style.setProperty("--canvasSize", gridSize.value);
-	card.style.display = "none";
-	container.innerHTML = "";
-	for (let i = 0; i < gridSize.value ** 2; i++) {
-		const div = document.createElement("div");
-		div.addEventListener('mouseover', () => (div.style.backgroundColor = "black"))
-		div.classList.add("grid");
-		container.appendChild(div);
-	}
+	createCanvas(gridSize.value);
 });
 
+clearBtn.addEventListener("click", () => {
+	clearCanvas();
+	createCanvas(gridSize.value);
+});
