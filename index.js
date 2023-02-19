@@ -7,8 +7,25 @@ const root = document.querySelector(":root");
 const grid = document.querySelector(".grid");
 const rootStyle = getComputedStyle(root);
 const clearBtn = document.querySelector(".clearBtn");
+const changeColor = document.querySelector(".changeColor");
+const resetColor = document.querySelector(".resetColor")
 gridSize.value = 16;
 let color = "black";
+
+let generateRandomColor = () => {
+	return Math.floor(Math.random() * 16777215).toString(16);
+};
+
+function checkValidSize(size) {
+	if (size >= 2 && size <= 100) {
+		createCanvas(size);
+	} else {
+		size = 16;
+		createCanvas(size);
+		console.log("bad size");
+	}
+	root.style.setProperty("--canvasSize", size);
+}
 
 function createCanvas(size) {
 	for (let i = 0; i < size * size; i++) {
@@ -35,11 +52,14 @@ layout.addEventListener("click", () => {
 
 select.addEventListener("click", () => {
 	clearCanvas();
-	root.style.setProperty("--canvasSize", gridSize.value);
-	createCanvas(gridSize.value);
+	checkValidSize(gridSize.value);
 });
 
 clearBtn.addEventListener("click", () => {
 	clearCanvas();
 	createCanvas(gridSize.value);
 });
+
+changeColor.addEventListener('click', () => color = `#${generateRandomColor()}`)
+
+resetColor.addEventListener('click', () => color = "black")
