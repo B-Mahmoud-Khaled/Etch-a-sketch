@@ -9,6 +9,38 @@ body {
 	flex-direction: column;
 	margin: 0;
 	padding: 0;
+	background-color: #e2ebf3;
+	font-family: "Courier New", Courier, monospace;
+	font-weight: bold;
+}
+
+button {
+	background-color: #e2ebf3;
+	border: 2px solid black;
+	border-radius: 4px;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 15px;
+}
+
+button:hover {
+	background-color: #cfddea;
+}
+
+.header {
+	font-size: 70px;
+	margin: auto;
+}
+
+.interface {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin: 20px;
+	width: 800px;
+	height: 700px;
+	background-color: #c5d7e7;
+	border-radius: 16px;
 }
 
 .container {
@@ -20,9 +52,10 @@ body {
 	gap: 0 0;
 	box-shadow: 2px 2px 2px 2px hsla(0, 0%, 20%, 0.655);
 	border-radius: 2px;
+	background-color: white;
 }
 
-.grid{
+.grid {
 	user-select: none;
 	-moz-user-select: none;
 	-webkit-user-drag: none;
@@ -53,4 +86,10 @@ body {
 	min-width: 300px;
 	min-height: 200px;
 	background-color: white;
+}
+
+.buttonBox {
+	display: flex;
+	margin: auto;
+	gap: 40px;
 }

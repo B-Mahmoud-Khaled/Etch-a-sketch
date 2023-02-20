@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Etch-a-Sketch</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="index.js" defer></script>
-  </head>
-  <body>
-    <button class="layout">Change Layout</button>
-    <button class="clearBtn">Clear</button>
-    <button class="rainbowMode">Rainbow Mode</button>
-    <button class="blackColor">Black Color</button>
-    <button class="eraser">Eraser</button>
-    <div class="card">
-      <div class="cardbox">
-        <div class="message">Choose Layout</div>
-        <input type="number" class="gridSize" value="16"/>
-        <button class="select">Select</button>
-      </div>
-    </div>
-    <div class="container"></div>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Etch-a-Sketch</title>
+		<link rel="stylesheet" href="styles.css" />
+		<script src="index.js" defer></script>
+	</head>
+	<body>
+		<div class="card">
+			<div class="cardbox">
+				<div class="message">Choose Layout</div>
+				<input type="number" class="gridSize" value="16" />
+				<button class="select">Select</button>
+			</div>
+		</div>
+		<div class="interface">
+			<div class="header">Etch-a-Sketch</div>
+			<div class="container"></div>
+			<div class="buttonBox">
+				<div class="canvasManip">
+					<button class="layout">Change Layout</button>
+					<button class="clearBtn">Clear</button>
+				</div>
+				<div class="colorChange">
+					<button class="rainbowMode">Rainbow Mode</button>
+					<button class="blackColor">Black Color</button>
+					<button class="eraser">Eraser</button>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

@@ -10,8 +10,9 @@ const clearBtn = document.querySelector(".clearBtn");
 const rainbowMode = document.querySelector(".rainbowMode");
 const blackColor = document.querySelector(".blackColor");
 const eraser = document.querySelector(".eraser");
-let click = false;
+const body = document.querySelector("body");
 
+let click = false;
 gridSize.value = 16;
 let buttonState = "0";
 
@@ -28,9 +29,13 @@ rainbowMode.addEventListener("click", () => {
 eraser.addEventListener("click", () => {
 	buttonState = "2";
 });
-container.addEventListener("mousedown", () => {click = true})
-container.addEventListener("mouseup", () => {click = false})
 
+body.addEventListener("mousedown", () => {
+	click = true;
+});
+body.addEventListener("mouseup", () => {
+	click = false;
+});
 
 function checkValidSize(size) {
 	if (size >= 2 && size <= 100) {
@@ -66,6 +71,7 @@ function clearCanvas() {
 	card.style.display = "none";
 	container.innerHTML = "";
 }
+
 
 createCanvas(gridSize.value);
 
