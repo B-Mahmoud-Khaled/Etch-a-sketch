@@ -10,6 +10,7 @@ const clearBtn = document.querySelector(".clearBtn");
 const rainbowMode = document.querySelector(".rainbowMode");
 const blackColor = document.querySelector(".blackColor");
 const eraser = document.querySelector(".eraser");
+let click = false;
 
 gridSize.value = 16;
 let buttonState = "0";
@@ -18,9 +19,18 @@ let generateRandomColor = () => {
 	return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 };
 
-blackColor.addEventListener("click", () => (buttonState = "0"));
-rainbowMode.addEventListener("click", () => (buttonState = "1"));
-eraser.addEventListener("click", () => {buttonState = "2"})
+blackColor.addEventListener("click", () => {
+	buttonState = "0";
+});
+rainbowMode.addEventListener("click", () => {
+	buttonState = "1";
+});
+eraser.addEventListener("click", () => {
+	buttonState = "2";
+});
+container.addEventListener("mousedown", () => {click = true})
+container.addEventListener("mouseup", () => {click = false})
+
 
 function checkValidSize(size) {
 	if (size >= 2 && size <= 100) {
@@ -38,12 +48,14 @@ function createCanvas(size) {
 		const div = document.createElement("div");
 		div.classList.add("grid");
 		div.addEventListener("mouseover", () => {
-			if (buttonState == "1") {
-				div.style.backgroundColor = generateRandomColor();
-			} else if (buttonState == "0") {
-				div.style.backgroundColor = "black";
-			} else if (buttonState == "2") {
-				div.style.backgroundColor = "white";
+			if (click) {
+				if (buttonState == "1") {
+					div.style.backgroundColor = generateRandomColor();
+				} else if (buttonState == "0") {
+					div.style.backgroundColor = "black";
+				} else if (buttonState == "2") {
+					div.style.backgroundColor = "white";
+				}
 			}
 		});
 		container.appendChild(div);
