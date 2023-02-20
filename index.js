@@ -9,8 +9,8 @@ const rootStyle = getComputedStyle(root);
 const clearBtn = document.querySelector(".clearBtn");
 const changeColor = document.querySelector(".changeColor");
 const resetColor = document.querySelector(".resetColor");
+
 gridSize.value = 16;
-let color = "black";
 let buttonState = false;
 
 let generateRandomColor = () => {
