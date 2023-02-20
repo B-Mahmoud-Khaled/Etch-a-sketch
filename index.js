@@ -7,18 +7,20 @@ const root = document.querySelector(":root");
 const grid = document.querySelector(".grid");
 const rootStyle = getComputedStyle(root);
 const clearBtn = document.querySelector(".clearBtn");
-const changeColor = document.querySelector(".changeColor");
-const resetColor = document.querySelector(".resetColor");
+const rainbowMode = document.querySelector(".rainbowMode");
+const blackColor = document.querySelector(".blackColor");
+const eraser = document.querySelector(".eraser");
 
 gridSize.value = 16;
-let buttonState = false;
+let buttonState = "0";
 
 let generateRandomColor = () => {
 	return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 };
 
-changeColor.addEventListener("click", () => (buttonState = true));
-resetColor.addEventListener("click", () => (buttonState = false));
+blackColor.addEventListener("click", () => (buttonState = "0"));
+rainbowMode.addEventListener("click", () => (buttonState = "1"));
+eraser.addEventListener("click", () => {buttonState = "2"})
 
 function checkValidSize(size) {
 	if (size >= 2 && size <= 100) {
@@ -36,10 +38,12 @@ function createCanvas(size) {
 		const div = document.createElement("div");
 		div.classList.add("grid");
 		div.addEventListener("mouseover", () => {
-			if (buttonState) {
+			if (buttonState == "1") {
 				div.style.backgroundColor = generateRandomColor();
-			} else {
+			} else if (buttonState == "0") {
 				div.style.backgroundColor = "black";
+			} else if (buttonState == "2") {
+				div.style.backgroundColor = "white";
 			}
 		});
 		container.appendChild(div);
