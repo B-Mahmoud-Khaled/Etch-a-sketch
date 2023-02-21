@@ -26,9 +26,36 @@ button:hover {
 	background-color: #cfddea;
 }
 
+input {
+	margin: 40px;
+}
+
 .header {
 	font-size: 70px;
 	margin: auto;
+}
+
+.message.warning {
+	align-self: center;
+	margin: auto;
+	width: 290px;
+	
+}
+
+.card.warning {
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.close {
+	margin-top: 4px;
+	margin-right: 4px;
+	align-self: end;
+}
+
+.close:hover {
+	color: rgb(97, 97, 97);
 }
 
 .interface {
@@ -86,6 +113,7 @@ button:hover {
 	min-width: 300px;
 	min-height: 200px;
 	background-color: white;
+	border-radius: 4px;
 }
 
 .buttonBox {

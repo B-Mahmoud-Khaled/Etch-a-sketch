@@ -11,6 +11,8 @@ const rainbowMode = document.querySelector(".rainbowMode");
 const blackColor = document.querySelector(".blackColor");
 const eraser = document.querySelector(".eraser");
 const body = document.querySelector("body");
+const warning = document.querySelector(".card.warning");
+const closeMsg = document.querySelector(".close");
 
 let click = false;
 gridSize.value = 16;
@@ -44,6 +46,7 @@ function checkValidSize(size) {
 		size = 16;
 		createCanvas(size);
 		console.log("bad size");
+		warning.style.display = "flex";
 	}
 	root.style.setProperty("--canvasSize", size);
 }
@@ -72,7 +75,6 @@ function clearCanvas() {
 	container.innerHTML = "";
 }
 
-
 createCanvas(gridSize.value);
 
 layout.addEventListener("click", () => {
@@ -87,4 +89,8 @@ select.addEventListener("click", () => {
 clearBtn.addEventListener("click", () => {
 	clearCanvas();
 	createCanvas(gridSize.value);
+});
+
+closeMsg.addEventListener("click", () => {
+	warning.style.display = "none";
 });
